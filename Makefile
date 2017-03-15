@@ -33,12 +33,12 @@ build/js: js
 deploy: build
 	rm -rf build/.git
 	git -C build init .
-	git -C build fetch "git@github.com:ichealthhack/hub.git" deploy
+	git -C build fetch "git@github.com:ichealthhack/hub.git" gh-pages
 	git -C build reset --soft FETCH_HEAD
 	git -C build add .
 	if ! git -C build diff-index --quiet HEAD ; then \
 		git -C build commit -m "Deploy ichealthhack/hub@${HEAD_REV}" && \
-		git -C build push "git@github.com:ichealthhack/hub.git" master:deploy; \
+		git -C build push "git@github.com:ichealthhack/hub.git" master:gh-pages; \
 		fi
 	cd ..
 
