@@ -158,13 +158,13 @@
 
   function FB() {
       // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyB67ma05nNyNTfhsXS0FsKuKroMi5MiE68",
-        authDomain: "ichack17-508ac.firebaseapp.com",
-        databaseURL: "https://ichack17-508ac.firebaseio.com",
-        storageBucket: "ichack17-508ac.appspot.com",
-        messagingSenderId: "207461313223"
-      };
+       var config = {
+         apiKey: "AIzaSyDbw9TnUPnFUrKh4jbklJR3ZOb3BH91FpA",
+         authDomain: "ichealthhack17.firebaseapp.com",
+         databaseURL: "https://ichealthhack17.firebaseio.com",
+         storageBucket: "ichealthhack17.appspot.com",
+         messagingSenderId: "159024357466"
+       };
 
       firebase.initializeApp(config);
       var database = firebase.database();
