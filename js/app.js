@@ -113,6 +113,9 @@
       if($scope.order["hardware"][item] !== undefined && $scope.order["hardware"][item] > 0) {
         $scope.order["hardware"][item]--;
       }
+      if($scope.order["hardware"][item] == 0) {
+        delete $scope.order["hardware"][item];
+      }
     }
 
    $scope.completeOrder = function() {
