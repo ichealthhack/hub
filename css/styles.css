@@ -426,4 +426,5 @@ img::-moz-selection {
     bottom:4vh;
     right:4vh;
     z-index: 999;
+    box-shadow: 2.5px 2.5px 1.25px #888888;
 }
