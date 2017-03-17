@@ -89,6 +89,7 @@ p {
 
 .bg-theme {
     background-color: #40ad6a;
+    color: #fff;
 }
 
 .bg-dark {
@@ -367,6 +368,21 @@ textarea {
     font-size: 20px;
 }
 
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 50%;
+}
+.btn-circle.btn-lg {
+  width: 90px;
+  height: 90px;
+  font-size: 18px;
+  line-height: 1.33;
+}
+
 ::-moz-selection {
     text-shadow: none;
     color: #fff;
@@ -403,4 +419,11 @@ img::-moz-selection {
 
 .no-padding {
     padding: 0;
+}
+
+.checkout {
+    position:fixed;
+    bottom:4vh;
+    right:4vh;
+    z-index: 999;
 }
