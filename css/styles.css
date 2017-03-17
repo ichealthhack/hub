@@ -342,11 +342,11 @@ textarea {
 
 .btn.btn-primary {
     background-color: transparent;
-    border:1px solid #007FFF;
+    border:1px solid #40ad6a;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
-    color:#007FFF;
+    color:#40ad6a;
 }
 
 .btn.btn-primary:hover {
