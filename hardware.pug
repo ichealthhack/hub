@@ -9,6 +9,8 @@ html(ng-app='app')
     link(rel="icon",href="images/favicon.png")
     meta(name='description', content="Hub for participants of IC HealthHack 2017")
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='theme-color', content='#40ad6a')
+
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css')
     link(href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css', rel='stylesheet')
     link(rel='stylesheet', href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
@@ -55,7 +57,7 @@ html(ng-app='app')
                     span.input-group-btn
                       button.btn.btn-secondary(type='button', data-ng-click='addItem(h)') +
               br
-              .bg-success.text-white.text-center.status(ng-if='h.remaining > 0')
+              .bg-theme.text-white.text-center.status(ng-if='h.remaining > 0')
                 h6  Available
               .bg-danger.text-white.text-center.status(ng-if='h.remaining <= 0')
                 h6  Out of stock
