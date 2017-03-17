@@ -1,3 +1,5 @@
+- var CHECKOUT = true;
+
 doctype html
 html(ng-app='app')
 
@@ -12,6 +14,7 @@ html(ng-app='app')
     link(rel='stylesheet', href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
     link(rel='stylesheet', href='css/styles.css')
     link(rel='stylesheet', href='css/marquee.css')
+    script(src='https://use.fontawesome.com/a9b62862e2.js')
 
   body.bg-faded(ng-controller='hardwareCtrl')
 
@@ -32,9 +35,12 @@ html(ng-app='app')
               li
                  h6 This list is only updated when the hardware has been collected.
       br
+      .container
+        h3 Devices
+      br
       .container.wow.fadeInUp
         .card-group#schedule
-          .col-lg-4(ng-repeat="h in hardware").no-padding
+          .col-lg-4(ng-repeat="h in hardware.devices").no-padding
             .card
               img.card-img-top.img-fluid(ng-src='{{h.photo}}')
               .card-block
@@ -54,12 +60,39 @@ html(ng-app='app')
               .bg-danger.text-white.text-center.status(ng-if='h.remaining <= 0')
                 h6  Out of stock
 
+      br.hidden-md-down
+      .container.hidden-md-down
+        h3 Components and Modules
+      br.hidden-md-down
+      .container.wow.fadeInUp.hidden-md-down
+        table.table.table-striped
+          thead.thead-inverse
+            tr
+              th.text-center Component
+              th.text-center Quantity
+              th.text-center Order
+          tbody
+            tr(ng-repeat="h in hardware.components")
+              td.text-center {{h.title}}
+              td.text-center {{h.remaining}} / {{h.stock}}
+              td.text-center
+                .bg-danger.text-white.text-center.status(ng-if='h.remaining <= 0')
+                  h6  Out of stock
+                .input-group(ng-if='h.remaining > 0')
+                  span.input-group-btn
+                    button.btn.btn-secondary(type='button', data-ng-click='removeItem(h)') -
+                  input.form-control.text-center(type='text', placeholder='0', ng-model='order["hardware"][h.title]', disabled)
+                  span.input-group-btn
+                    button.btn.btn-secondary(type='button', data-ng-click='addItem(h)') +
+
       br
       .container
          a(data-toggle='modal', href='#confirmModal')
-            button.btn.btn-primary.btn-lg.btn-block(type='button') Confirm
+            button.btn.btn-primary.btn-lg.btn-block(type='button') Checkout
 
-
+    a(data-toggle='modal', href='#confirmModal')
+      button.btn.bg-theme.btn-circle.btn-lg.checkout(type='button')
+        i.fa.fa-shopping-cart.fa-2x(aria-hidden='true')
 
     #confirmModal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
       .modal-dialog
@@ -105,6 +138,7 @@ html(ng-app='app')
               .alert.alert-danger#orderFailure(role='alert', style="display:none;")
                 strong Oh snap!
                 |  Change a few things up and try submitting again.
+
 
 
     include includes/contact
